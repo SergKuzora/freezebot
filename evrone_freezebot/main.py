@@ -12,8 +12,7 @@ app = FastAPI()
 
 origins = [
     'https://climate-bot.netlify.app',
-    'http://localhost:3000',
-    '*'
+    'http://localhost:3000'
 ]
 
 app.add_middleware(
@@ -43,4 +42,4 @@ async def add_offer(answ):
     """
     Добавить коммерческое предложение
     """
-    return answ
+    return {'answer': answ}
