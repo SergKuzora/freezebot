@@ -25,9 +25,6 @@ app.add_middleware(
 )
 
 
-app = FastAPI()
-
-
 class CommercialOffer(BaseModel):
     """
     Коммерческое предложение
