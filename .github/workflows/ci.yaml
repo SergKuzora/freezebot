@@ -65,6 +65,9 @@ jobs:
 
     needs: [build]
 
+    env: 
+      MAIN_IRL: ${{ vars.MAIN_URL }}
+
     steps:
     - name: Executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
