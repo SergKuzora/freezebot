@@ -75,7 +75,7 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
           # Выполняет pull образа с DockerHub
-          sudo docker pull sergeykuzora/freezebot
+          sudo docker pull sergeykuzora/freezebot:main
           # Остановка всех контейнеров
           sudo docker stop $(sudo docker ps -a -q)
-          sudo docker run --rm -d -p 8000:8000 sergeykuzora/freezebot
+          sudo docker run --rm -d -p 8000:8000 sergeykuzora/freezebot:main
