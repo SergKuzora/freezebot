@@ -43,19 +43,19 @@ jobs:
         run: |
           poetry run pylint ./evrone_freezebot
 
-build:
-  runs-on: ubuntu-lastest
-
-  needs: [run-tests]
-
-  steps:
-  - name: Login to Docker
-    run: echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_LOGIN }} --password-stdin
-
-  - uses: actions/checkout@v3
-
-  - name: Build the Docker image
-    run: docker build -t ${{ vars.DOCKER_PROJECT }}:${ GITHUB_REF_NAME } -f Dockerfile .
+  build:
+    runs-on: ubuntu-lastest
   
-  - name: Push image to docker
-    run: docker push ${{ vars.DOCKER_PROJECT }}:${ GITHUB_REF_NAME }
+    needs: [run-tests]
+  
+    steps:
+    - name: Login to Docker
+      run: echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_LOGIN }} --password-stdin
+  
+    - uses: actions/checkout@v3
+  
+    - name: Build the Docker image
+      run: docker build -t ${{ vars.DOCKER_PROJECT }}:${ GITHUB_REF_NAME } -f Dockerfile .
+    
+    - name: Push image to docker
+      run: docker push ${{ vars.DOCKER_PROJECT }}:${ GITHUB_REF_NAME }
