@@ -38,8 +38,8 @@ async def show_offers():
     return CommercialOffer()
 
 @app.post('/add_offer')
-async def add_offer(answ):
+async def add_offer():
     """
     Добавить коммерческое предложение
     """
-    return {'answer': answ}
+    return CommercialOffer()
