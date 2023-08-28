@@ -12,6 +12,7 @@ app = FastAPI()
 
 origins = [
     'https://climate-bot.netlify.app',
+    'http://localhost:3000'
 ]
 
 app.add_middleware(
